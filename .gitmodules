@@ -1,0 +1,3 @@
+[submodule "src/dicegame"]
+	path = src/dicegame
+	url = git@github.com:yacoubb/dice-game.git

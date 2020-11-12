@@ -27,7 +27,7 @@ const DiceGame = (props) => {
             Object.keys(client.commands).forEach((diceGameCommand) => {
                 diceGameCommands[diceGameCommand] = {
                     fn: async (args) => {
-                        let data = await client.commands[diceGameCommand].fn(args).catch(client.logErrorCode)
+                        let data = await client.commands[diceGameCommand].fn(...args).catch(client.logErrorCode)
                         if (data !== undefined) {
                             switch (diceGameCommand) {
                                 case 'players':
@@ -58,7 +58,7 @@ const DiceGame = (props) => {
             client.callbacks.registerRoomInfoCallback(() => {
                 return new Promise(async (resolve) => {
                     const roomInfo = {
-                        roomName: await getPromptedInput('enter room name...'),
+                        name: await getPromptedInput('enter room name...'),
                         public: (await getChoice('room visibility...', ['public', 'private'])) === 0,
                         password: await getPromptedInput('enter room password (leave blank for no password)'),
                         maxPlayers: Math.max(1, parseInt(await getPromptedInput('enter max players (minimum 1)'))),
