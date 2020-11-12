@@ -1,2 +1,3 @@
 # web-terminal
-A functional web emulator written in react.
+
+A functional terminal emulator written in react.
