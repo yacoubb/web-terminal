@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Terminal from '../components/Terminal'
+import Terminal from './Terminal'
 const path = require('path')
 
 const FileSystem = (props) => {

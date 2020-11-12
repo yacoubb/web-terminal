@@ -1,5 +1,5 @@
 import React from 'react'
-import Terminal from './components/Terminal'
+import Terminal from './modules/Terminal'
 import FileSystem from './modules/FileSystem'
 import DiceGame from './modules/DiceGame'
 import TimeExample from './modules/TimeExample'

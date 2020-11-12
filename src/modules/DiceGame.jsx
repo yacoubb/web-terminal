@@ -1,5 +1,5 @@
 import React from 'react'
-import Terminal, { useTerminalInput, useTerminalSelection } from '../components/Terminal'
+import Terminal, { useTerminalInput, useTerminalSelection } from './Terminal'
 
 const DiceGame = (props) => {
     const [getPromptedInput, inputPrompt, inputCallback] = useTerminalInput()
