@@ -143,7 +143,7 @@ const FileSystem = (props) => {
             highlight: 'blue',
             help: 'create an empty file. usage: touch [file name]',
         },
-        rm: {},
+        // rm: {},
         cat: {
             fn: ([name, ...rest], { appendError, appendHistory }) => {
                 if (name === undefined || name === null || name.length === 0) {
