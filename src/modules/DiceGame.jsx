@@ -12,7 +12,7 @@ const DiceGame = (props) => {
         name: 'diceGame',
         fn: (args, { appendHistory, appendError }) => {
             appendHistory('diceGame started')
-            const config = require('../dicegame/config-template.json')
+            const config = require('../dicegame/config.json')
             if (args.length > 0) {
                 config['serverAddress'] = args[0]
             }
