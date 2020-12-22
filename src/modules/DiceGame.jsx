@@ -2,6 +2,7 @@ import React from 'react'
 import Terminal, { useTerminalInput, useTerminalSelection } from './Terminal'
 import clientFactory from '../dicegame/dice-client'
 import logFactory from '../dicegame/logging'
+const baseConfig = require('../dicegame/config.json')
 
 const DiceGame = (props) => {
     const [getPromptedInput, inputPrompt, inputCallback] = useTerminalInput()
@@ -12,11 +13,11 @@ const DiceGame = (props) => {
         name: 'diceGame',
         fn: (args, { appendHistory, appendError }) => {
             appendHistory('diceGame started')
-            const config = require('../dicegame/config.json')
-            if (args.length > 0) {
+            const config = JSON.parse(JSON.stringify(baseConfig))
+            if (args.length > 0 && args[0].length > 0) {
                 config['serverAddress'] = args[0]
             }
-            if (args.length > 1) {
+            if (args.length > 1 && args[1].length > 1) {
                 config['port'] = args[1]
             }
             const client = clientFactory(config)
