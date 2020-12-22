@@ -1,5 +1,7 @@
 import React from 'react'
 import Terminal, { useTerminalInput, useTerminalSelection } from './Terminal'
+import clientFactory from '../dicegame/dice-client'
+import logFactory from '../dicegame/logging'
 
 const DiceGame = (props) => {
     const [getPromptedInput, inputPrompt, inputCallback] = useTerminalInput()
@@ -17,13 +19,13 @@ const DiceGame = (props) => {
             if (args.length > 1) {
                 config['port'] = args[1]
             }
-            const client = require('../dicegame/dice-client')(config)
+            const client = clientFactory(config)
             client.setLogger(appendHistory, appendError)
             return client
         },
         commands: (client, { appendHistory, appendError }) => {
             const diceGameCommands = {}
-            const { table } = require('../dicegame/logging')(appendHistory, appendError)
+            const { table } = logFactory(appendHistory, appendError)
             Object.keys(client.commands).forEach((diceGameCommand) => {
                 diceGameCommands[diceGameCommand] = {
                     fn: async (args) => {
